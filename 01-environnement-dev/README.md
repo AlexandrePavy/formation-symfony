@@ -28,3 +28,28 @@ Il existe pleins d'outils pour installer Apache ou Nginx, Mysql et PHP.
 Dans ce cours je recommande l'utilisation de [Laragon](https://laragon.org/) disponible sur Windows. Ce logiciel apporte non seulement Apache/Nginx, Mysql, PHP mais aussi une gestion automatique des hôtes virtuels en https, le terminal [Cmder](http://cmder.net/) et le logiciel de gestion de base de données [HeidiSQL](https://www.heidisql.com/).
 
 1. Rendez-vous sur le site de [Laragon](https://laragon.org/) dans la section téléchargement, puis télécharger et installer Laragon.
+
+### Composer 
+
+Composer est le gestionnaire de dépendances PHP, il est essentiels pour une bonne utilisation de Symfony.
+
+1. Rendez-vous sur le site de [Composer](https://getcomposer.org/) pour télécharger et installer composer.
+
+Composer a besoin de l'exécutable PHP, sur windows et avec Laragon vous pouvez définir `C:\laragon\bin\php\php-7.1.14-Win32-VC14-x64\php.exe` comme exécutable.  
+
+### IDE
+
+Je recommande fortement l'utilisation de [PhpStorm](https://www.jetbrains.com/phpstorm/) disponible pour Windows/Linux/macOS.
+
+1. Rendez-vous sur le site de [PhpStorm](https://www.jetbrains.com/phpstorm/) ou la [ToolBox](https://www.jetbrains.com/toolbox/app/) qui est permet de l'installer plus facilement. 
+2. Configurer votre IDE avec les plugins :
+    1. Symfony Plugin
+    2. PHP Toolbox
+    3. PHP Annotations
+    4. .ignore (Optionnel)
+    5. .env files support (Optionnel)
+
+Il existe d'autre IDE ou editeur de texte :
+* [Eclipse](https://www.eclipse.org/downloads/) - Windows/Linux/macOS
+* [Netbeans](https://netbeans.org/downloads/) - Windows/Linux/macOS
+* [Visual Studio Code](https://code.visualstudio.com/) - Windows/Linux/macOS
