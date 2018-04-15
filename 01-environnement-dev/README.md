@@ -37,6 +37,8 @@ Composer est le gestionnaire de dépendances PHP, il est essentiels pour une bon
 
 Composer a besoin de l'exécutable PHP, sur windows et avec Laragon vous pouvez définir `C:\laragon\bin\php\php-7.1.14-Win32-VC14-x64\php.exe` comme exécutable.  
 
+[Composer Cheat Sheet](http://composer.json.jolicode.com/) - aide mémoire en anglais sur composer
+
 ### IDE
 
 Je recommande fortement l'utilisation de [PhpStorm](https://www.jetbrains.com/phpstorm/) disponible pour Windows/Linux/macOS.
