@@ -17,7 +17,7 @@ Mettre en place les outils nécessaires au développement d'applications web ave
  4. (Optionnel) Vous pouvez installer une application graphique pour faciliter l'utilisation de Git.
 	 1. [Github Desktop](https://desktop.github.com/) Windows/macOS
 	 2. [Git Kraken](https://www.gitkraken.com/) Windows/macOS/Linux
-5. [Git Cheat Sheet](https://services.github.com/on-demand/downloads/fr/github-git-cheat-sheet.pdf) pour Git et Github en français.
+5. [Git Cheat Sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf) pour Git et Github en français.
 
 ### AMP Stack 
 
