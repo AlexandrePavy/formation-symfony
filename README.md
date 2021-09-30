@@ -8,3 +8,4 @@
 
 1. [Environnement de développement](01-environnement-dev)
 2. [Getting Started](02-getting-started)
+3. [TP Composer](03-tp-composer)
