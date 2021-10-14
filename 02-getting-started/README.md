@@ -228,6 +228,21 @@ Avec Request, il est possible de le faire comme ceci `$name = $request->query->g
 Modifiez votre code pour afficher le paramètre name sur la page.
 
 
+## Symfony Console
+
+Manipulation de la command symfony.
+
+```shell
+php bin/console
+```
+
+## Maker Bundle
+
+https://symfony.com/bundles/SymfonyMakerBundle/current/index.html
+
+Objectif : essaye de comprendre Symfony Maker Bundle
+Installer Symfony Maker Bundle et l'utiliser
+
 ## Découvrir l’Architecture de Symfony 5
 
 Doc de Référence : https://symfony.com/doc/5.3/page_creation.html#checking-out-the-project-structure
