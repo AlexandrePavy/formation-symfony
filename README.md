@@ -10,3 +10,5 @@
 2. [Getting Started](02-getting-started)
 3. [TP Composer](03-tp-composer)
 4. [Templating Twig](04-templating)
+5. [Base de données](05-database)
+6. [Routing](06-routing)

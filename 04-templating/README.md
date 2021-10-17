@@ -4,7 +4,7 @@ Dans la partie `Getting Started`, nous avons créé une simple page utilisant du
 
 Le but de cette partie est d’utiliser un framework CSS dans notre projet Symfony. Vous pouvez le visualiser [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
-Vous pouvez télécharger les template ici : 
+Vous pouvez télécharger les templates ici : 
 
 * [blog_home](blog_home.html)
 * [blog_show](blog_show.html)
@@ -17,7 +17,7 @@ Commençons par installer Twig avec la commande suivante :
 composer require twig
 ```
 
-Pour rappel le package "twig" n'existe pas dans [Packagist](https://packagist.org/) c'est [Symfony Flex]() qui fait le lien avec https://github.com/symfony/twig-pack qui lui indique d'installer et de configurer automatiquement à notre place les packages suivants : 
+Pour rappel le package "twig" n'existe pas dans [Packagist](https://packagist.org/) c'est [Symfony Flex](https://flex.symfony.com/) qui fait le lien avec https://github.com/symfony/twig-pack qui lui indique d'installer et de configurer automatiquement à notre place les packages suivants : 
 
 ```json
 ...
@@ -58,7 +58,7 @@ ou si vous êtes en PHP supérieur à la version 8.0
 #[Route('/', name: 'home')]
 ```
 
-Accédez à localhost:8080/ pour constater que ça votre page fonctionne comme attendu.
+Accédez à localhost:8080 pour constater que ça votre page fonctionne comme attendu.
 
 ## Adaptation du template
 
@@ -76,7 +76,7 @@ Pour commencer, dans le dossier `templates`, créez un dossier `_layout` qui con
 
 Dans ce dossier créez les fichiers `navbar.html.twig` et `footer.html.twig`.
 
-Prendre le fichier `index.html` du et répartir le code HTML dans les différents fichiers du dossier templates :
+Prendre le fichier `base_home.html` du et répartir le code HTML dans les différents fichiers du dossier templates :
 
 * Le code commun doit se trouver dans `base.html.twig`
 * Le code de la navbar et du footer dans les fichiers séparés
@@ -90,7 +90,6 @@ Les templates de la navbar et du footer ne doivent pas étendre de `base.html.tw
 ### Testons tout ça
 
 Pour tester notre nouvelle page, on peut actualiser http://localhost:8080/
-
 
 ## Générations des URLs
 
@@ -128,14 +127,14 @@ Nous allons tenter de dynamiser la page, pour cela dans votre controller `HomeCo
 
 Créer plusieurs articles comme celui ci : 
 ```php
-        $article1 = [
-            'title' => 'Titre 1',
-            'subtitle' => 'Subtitle 1',
-            'createdAt' => new \DateTime(),
-            'author' => 'John Doe',
-            'content' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            'imageUrl' => 'https://dummyimage.com/850x350/dee2e6/6c757d.jpg'
-        ];
+    $article1 = [
+        'title' => 'Titre 1',
+        'subtitle' => 'Subtitle 1',
+        'createdAt' => new \DateTime(),
+        'author' => 'John Doe',
+        'content' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        'imageUrl' => 'https://dummyimage.com/850x350/dee2e6/6c757d.jpg'
+    ];
 ```
 
 Et passez ces articles à votre vue.
@@ -204,4 +203,4 @@ Symfony possède un composant nommé Webpack Encore et c’est LA méthode à pr
 
 Nous nous en tiendrons donc dans un premier temps à des fichiers statiques dans le dossier public.
 
-Pour plus détails : Guide Frontend Symfony
+Pour plus détails : [Guide Frontend Symfony](https://symfony.com/doc/5.3/frontend.html)
