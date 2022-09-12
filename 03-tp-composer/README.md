@@ -5,7 +5,7 @@ L'objectif est de prendre en main composer, installer un composant symfony en de
 Documentation :
 * [Composer](https://getcomposer.org/)
 * [Packagist](https://packagist.org/)
-* [Documentation de symfony/console](https://symfony.com/doc/5.3/components/console.html)
+* [Documentation de symfony/console](https://symfony.com/doc/6.1/components/console.html)
 * [Documentation de monolog/monolog](https://github.com/Seldaek/monolog/tree/master/doc)
 * [Composer Cheat Sheet](http://composer.json.jolicode.com/)
 

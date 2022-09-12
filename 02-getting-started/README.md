@@ -1,11 +1,11 @@
-# Getting Starting with Symfony 5 🚀
+# Getting Starting with Symfony 6 🚀
 
 Les liens :
 * [Site officiel de Symfony](https://symfony.com/)
-* [Documentation de Symfony](https://symfony.com/doc/5.3/index.html)
+* [Documentation de Symfony](https://symfony.com/doc/6.1/index.html)
 * [Symfony Roadmap](https://symfony.com/roadmap)
-* [Quick tour](https://symfony.com/doc/5.3/quick_tour/the_big_picture.html)
-* [Getting Started with Symfony 5](https://symfony.com/doc/5.3/getting_started/index.html)
+* [Quick tour](https://symfony.com/doc/6.1/quick_tour/the_big_picture.html)
+* [Getting Started with Symfony 6](https://symfony.com/doc/6.1/getting_started/index.html)
 
 Les étapes de l'installation de Symfony sont disponible dans la [Documentation - Setup Symfony](https://symfony.com/doc/5.3/setup.html).
 
@@ -13,30 +13,30 @@ Les étapes de l'installation de Symfony sont disponible dans la [Documentation 
 
 ### Création d'un projet Symfony
 
-`composer create-project symfony/website-skeleton sf-website`
-
-`composer create-project symfony/skeleton sf5-skeleton`
+1. `composer create-project symfony/website-skeleton sf-website`
+    * Dans le cas de Symfony CLI : `symfony new --webapp sf-website`
+2. `composer create-project symfony/skeleton sf-skeleton`
+    * Dans le cas de Symfony CLI : `symfony new sf-skeleton`
 
 ### Lancement du Serveur
 
-1. Déplacez vous dans le dossier du projet avec `cd sf5-skeleton`.
+1. Déplacez vous dans le dossier du projet avec `cd sf-skeleton`.
 2. Exécutez la commande `php -S 127.0.0.1:8000 -t public` pour lancer le serveur interne de PHP.
 3. Lancer sur votre navigateur la page [localhost:8000](http://localhost:8000/)
-4. Un meilleur serveur de développement avec la commande `composer require server --dev` puis `php bin/console server:run`
 
 ## Création de notre première page
 
-1. [Documentation Symfony](https://symfony.com/doc/5.3/page_creation.html)
+1. [Documentation Symfony](https://symfony.com/doc/6.1/page_creation.html)
 
 ### Définition
 
 1. [Flex](https://github.com/symfony/flex)
-2. [Liste des recettes](https://symfony.sh/)
-3. [Recettes officiel](https://github.com/symfony/recipes)
-4. [Recettes contrib](https://github.com/symfony/recipes-contrib)
+2. [Liste des recettes](https://t-richard.github.io/flex-server/)
+3. [Recettes officiel](https://github.com/symfony/recipes/blob/flex/main/RECIPES.md)
+4. [Recettes contrib](https://github.com/symfony/recipes-contrib/blob/flex/main/RECIPES.md)
 
-### Découvrir l'Architecture de SF5
-> Doc de Référence : https://symfony.com/doc/5.3/page_creation.html#checking-out-the-project-structure
+### Découvrir l'Architecture de SF
+> Doc de Référence : https://symfony.com/doc/6.1/page_creation.html#checking-out-the-project-structure
 
 ### Création de notre première page
 
@@ -82,17 +82,13 @@ Vous pouvez maintenant accéder à votre page à l’adresse http://localhost:80
 
 On vient ici de créer une route nommée app_lucky_number, qui associe le chemin /lucky_number à la méthode number de la classe App\Controller\LuckyController.
 
-### Annotations
+### Attributs
 
-Il y a une autre façon de configurer les routes, qui est souvent préférée à la configuration en YAML.
+Au lieu de définir votre route en YAML, Symfony vous permet également d'utiliser des routes en annotation ou en attribut PHP.
 
-Ce sont les annotations, pour pouvoir les utiliser, lancez la commande suivante
+Les attributs sont intégrés à PHP à partir de PHP 8. Dans les versions antérieures de PHP, vous pouvez utiliser des annotations.
 
-package flex : https://flex.symfony.com/
-
-```shell
-composer require annotations
-```
+Dans le cas de Symfony 6 on utilise les attibuts :
 
 Supprimez maintenant ce que vous aviez ajouté dans config/routes.yaml
 
@@ -111,12 +107,11 @@ Supprimez maintenant ce que vous aviez ajouté dans config/routes.yaml
     
     use Symfony\Component\HttpFoundation\Response;
 +   use Symfony\Component\Routing\Annotation\Route;
-    
+
     class LuckyController
     {
-+       /**
-+        * @Route("/lucky_number", name="app_lucky_number")
-+        */
+
++       #[Route('/test', name: 'app_test')]
         public function number(): Response
         {
             $number = random_int(0, 100);
@@ -127,28 +122,21 @@ Supprimez maintenant ce que vous aviez ajouté dans config/routes.yaml
         }
     }
 ```
-Il y a une alternative à l'annotation @Route, ce sont les attributes PHP (qui sont arrivés récemment avec PHP 8) qui devient aujourd'hui le standard pour PHP car natif (pas besoin de package externe).
-
-Si vous avez PHP > 8 vous pouvez remplacer par :
-```diff
-       /**
-        * @Route("/lucky_number", name="app_lucky_number")
-        */
-+    #[Route('/lucky_number', name: 'app_lucky_number')]
-```
 
 Maintenant, actualisez la page. Normalement rien n’a changé.
 
-L’avantage des annotations, c’est que la configuration est près du code ce qui rend le projet plus facilement compréhensible et configurable.
+L’avantage des annotations ou des attributs PHP, c’est que la configuration de la route se trouve au même endroit que le code pour faciliter la compréhensiton et la configuration.
 
 ## Définition
 
 1. [Flex](https://github.com/symfony/flex)
-2. [Liste des recettes](https://flex.symfony.com/)
-3. [Recettes officielles](https://github.com/symfony/recipes)
-3. [Recettes contrib](https://github.com/symfony/recipes-contrib)
+2. [Liste des recettes](https://t-richard.github.io/flex-server/)
+3. [Recettes officiel](https://github.com/symfony/recipes/blob/flex/main/RECIPES.md)
+4. [Recettes contrib](https://github.com/symfony/recipes-contrib/blob/flex/main/RECIPES.md)
+
 
 Symfony Flex est un plugin Composer qui s'ajoute au processus d’installation (lorsque l'on fait un composer install). Lorsqu’il détecte un paquet pour lequel une recette existe, il l’exécute.
+
 Cela permet d'exécuter automatiquement l'installation ou la désinstallation d'un paquet, pas besoin d'écrire la configuratin de base nous-même.
 
 
@@ -159,7 +147,9 @@ Installez le Profiler Symfony. C’est un outil permettant d’avoir beaucoup de
 Pour l’installer :
 
 ```shell
-composer require debug
+composer require profiler
+# ou sans flex 
+composer require --dev symfony/profiler-pack
 ```
 
 > Faite un petit tour de découverte des options de la barre.
@@ -243,13 +233,13 @@ https://symfony.com/bundles/SymfonyMakerBundle/current/index.html
 Objectif : essaye de comprendre Symfony Maker Bundle
 Installer Symfony Maker Bundle et l'utiliser
 
-## Découvrir l’Architecture de Symfony 5
+## Découvrir l’Architecture de Symfony 6
 
-Doc de Référence : https://symfony.com/doc/5.3/page_creation.html#checking-out-the-project-structure
+Doc de Référence : https://symfony.com/doc/6.1/page_creation.html#checking-out-the-project-structure
 
 ## Liens utiles
 
-Votre plus grande alliée est la [documentation officielle de Symfony](https://symfony.com/doc/current/index.html)
+Votre plus grande alliée est la [documentation officielle de Symfony](https://symfony.com/doc/6.1/index.html)
 
 Pour appronfondir : 
 

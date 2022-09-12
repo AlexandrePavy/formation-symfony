@@ -1,7 +1,5 @@
 # Routing et requête
 
-Nous avons déjà abordé la notion de routing.
-
 Dans notre projet, c’est Symfony qui gère nos routes (i.e. nos “chemins d’URL”).
 
 Par exemple, quand on se rend sur localhost:8080/, c’est Symfony qui grâce à nos annotations `@Route` que c’est la méthode `index` de notre `HomeController` qui doit être exécuté.

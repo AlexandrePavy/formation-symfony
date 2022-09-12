@@ -12,7 +12,7 @@ Mise en place des outils nécessaires au développement d'applications PHP avec 
  2. Vérifiez votre installation en ouvrant le terminal de votre choix avec la commande `git --version`, la commande doit vous afficher la version de Git.
  3. Configurez Git avec les commandes suivantes :
 	 1. `git config --global user.name "PRENOM NOM"` 
-	 2. `git config --global user.email "EMAIL@DOMAINE"`
+	 2. `git config --global user.email "EMAIL@DOMAIN"`
 	 3. `git config --global core.editor nano`
  4. (Optionnel) Vous pouvez installer une application graphique pour faciliter l'utilisation de Git.
 	 1. [Github Desktop](https://desktop.github.com/) Windows/macOS
@@ -25,7 +25,7 @@ Il existe plusieurs outils pour installer Apache ou Nginx, MySQL et PHP.
 * [Wamp](http://www.wampserver.com/) - Windows
 * [Xampp](https://www.apachefriends.org/fr/index.html) - Windows/Linux/macOS
 
-Si vous êtes sur Windows, je vous recommande l'utilisation de [Laragon](https://laragon.org/). Ce logiciel apporte non seulement le combot Apache/Nginx, MySQL, PHP mais aussi une gestion automatique des hôtes virtuels en https, le terminal [Cmder](http://cmder.net/) et le logiciel de gestion de base de données [HeidiSQL](https://www.heidisql.com/).
+Si vous êtes sur Windows, je vous recommande l'utilisation de [Laragon](https://laragon.org/). Ce logiciel apporte non seulement la combinaisaion Apache/Nginx, MySQL, PHP mais aussi une gestion automatique des hôtes virtuels en https, le terminal [Cmder](http://cmder.net/) ainsi que le logiciel de gestion de base de données [HeidiSQL](https://www.heidisql.com/).
 
 1. Rendez-vous sur le site de [Laragon](https://laragon.org/) dans la section téléchargement, puis télécharger et installer [Laragon](https://laragon.org/).
 
@@ -43,7 +43,7 @@ Composer a besoin de l'exécutable PHP, sur windows et avec [Laragon](https://la
 
 ### IDE
 
-Je recommande fortement l'utilisation de [PhpStorm](https://www.jetbrains.com/phpstorm/) disponible pour Windows/Linux/macOS et gratuitement avec le [GitHub Student Developer Pack](https://education.github.com/pack).
+Je recommande fortement l'utilisation de [PhpStorm](https://www.jetbrains.com/phpstorm/) disponible sur les système d'exploitation Windows/Linux/macOS gratuitement avec le [GitHub Student Developer Pack](https://education.github.com/pack).
 
 1. Rendez-vous sur le site de [PhpStorm](https://www.jetbrains.com/phpstorm/)
 2. Liste des plugins sur PhpStorm :
@@ -66,8 +66,16 @@ Listes des plugins:
 3. [Twig Language](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language)
 4. [Twig Language 2](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language-2)
 
+### Symfony CLI
+
+La CLI (Command Line Interface) Symfony est un outil de développement pour vous aider à créer, exécuter et gérer vos applications Symfony directement depuis votre terminal.
+
+Installation de la CLI Symfony
+1. [Symfony CLI](https://symfony.com/download)
+
 ### Vérification de votre environnement
 
 1. `php --version`
 2. `composer --version`
 3. `git --version`
+4. `symfony version`
