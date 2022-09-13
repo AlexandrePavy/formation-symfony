@@ -111,7 +111,7 @@ Supprimez maintenant ce que vous aviez ajouté dans config/routes.yaml
     class LuckyController
     {
 
-+       #[Route('/test', name: 'app_test')]
++       #[Route('/lucky_number', name: 'app_lucky_number')]
         public function number(): Response
         {
             $number = random_int(0, 100);
@@ -147,9 +147,9 @@ Installez le Profiler Symfony. C’est un outil permettant d’avoir beaucoup de
 Pour l’installer :
 
 ```shell
-composer require profiler
+composer require debug
 # ou sans flex 
-composer require --dev symfony/profiler-pack
+composer require --dev symfony/debug-bundle symfony/web-profiler-bundle
 ```
 
 > Faite un petit tour de découverte des options de la barre.

@@ -17,7 +17,7 @@ Commençons par installer Twig avec la commande suivante :
 composer require twig
 ```
 
-Pour rappel le package "twig" n'existe pas dans [Packagist](https://packagist.org/) c'est [Symfony Flex](https://flex.symfony.com/) qui fait le lien avec https://github.com/symfony/twig-pack qui lui indique d'installer et de configurer automatiquement à notre place les packages suivants : 
+Pour rappel le package "twig" n'existe pas dans [Packagist](https://packagist.org/) c'est [Symfony Flex](https://t-richard.github.io/flex-server/) qui fait le lien avec https://github.com/symfony/twig-pack qui lui indique d'installer et de configurer automatiquement à notre place les packages suivants : 
 
 ```json
 ...
@@ -30,13 +30,13 @@ Pour rappel le package "twig" n'existe pas dans [Packagist](https://packagist.or
 Documentation : 
 * https://twig.symfony.com/ : Site officiel de twig
 * https://twig.symfony.com/doc/3.x/ documentation de twig
-* https://symfony.com/doc/5.3/templates.html templating dans symfony
-* https://symfony.com/doc/5.3/frontend.html gestion des Assets dans symfony
+* https://symfony.com/doc/6.1/templates.html templating dans symfony
+* https://symfony.com/doc/6.1/frontend.html gestion des Assets dans symfony
 
 
 ## Création d’un nouveau controller
 
-Afin de tester nos nouvelles pages, nous allons créer un nouveau ontroller que nous appellerons `HomeController`.
+Afin de tester nos nouvelles pages, nous allons créer un nouveau controller que nous appellerons `HomeController`.
 
 Vous pouvez utilisez Maker bundle avec la commande console Symfony 
 ```shell
@@ -44,21 +44,13 @@ php bin/console make:controller HomeController
 ```
 Vérifier le code généré.
 
-Dans ce controller, vous devez modifiez l’annotation de route pour que la page soit accessible sur `/` et non `/home`.
+Dans ce controller, vous devez modifiez l'attribut de route pour que la page soit accessible sur `/` et non `/home`.
 
 ```php
-/**
-* @Route("/", name="home")
-*/
+#[Route(path: '/', name: 'home')]
 ```
 
-ou si vous êtes en PHP supérieur à la version 8.0
-
-```php
-#[Route('/', name: 'home')]
-```
-
-Accédez à localhost:8080 pour constater que ça votre page fonctionne comme attendu.
+Accédez à localhost:8080 pour constater que votre page fonctionne comme attendu.
 
 ## Adaptation du template
 
@@ -93,9 +85,9 @@ Pour tester notre nouvelle page, on peut actualiser http://localhost:8080/
 
 ## Générations des URLs
 
-Nous avons déjà vu que pour gérer nos URLs, nous utilisons l’annotation @Route dans nos controlleurs.
+Nous avons déjà vu que pour gérer nos URLs, nous utilisons l'attribut #[Route] dans nos controlleurs.
 
-Dans cette annotation, nous avons deux parties :
+Dans cette attribut, nous avons deux parties :
 
 * path : c’est la partie après le nom de domaine que les utilisateurs devront saisir pour accéder à la page en question
 * name : cette partie sert aux développeurs, elle nous sert à référencer cette route pour pouvoir générer des URLs
@@ -109,7 +101,7 @@ Dans le template `navbar.html.twig`, changez la balise contenant le lien vers la
 + <a class="navbar-brand" href="{{ path('home') }}">Start Bootstrap</a>
 ```
 
-Ici, la fonction `path()` prend comme paramètre le nom de la route défini dans l’annotation de votre controlleur.
+Ici, la fonction `path()` prend comme paramètre le nom de la route défini dans l'attribut de votre controlleur.
 
 Si vous actualisez, vous devriez arriver sur la page d’accueil en cliquant sur `Home` dans le menu.
 
