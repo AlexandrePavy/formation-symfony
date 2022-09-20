@@ -56,7 +56,7 @@ Accédez à localhost:8080 pour constater que votre page fonctionne comme attend
 
 Chaque template doit hériter d’un template générique souvent nommé `base.html.twig`.
 
-Ce fichier contient le code que l’on doit répéter sur toutes les pages. Il s’agit généralement du HTML générique (<html>, <head>, <body>, <meta>, etc) ainsi que des éléments HTML que l’on retrouve sur toutes les pages (navbar, menu, footer, etc).
+Ce fichier contient le code que l’on doit répéter sur toutes les pages. Il s’agit généralement du HTML générique (html, head, body, meta, etc) ainsi que des éléments HTML que l’on retrouve sur toutes les pages (navbar, menu, footer, etc).
 
 La bonne pratique veut que l’on sépare dans des fichiers différents, les composants de notre page. Cela veut par exemple dire un fichier pour la navbar et un fichier pour le footer, que l’on va inclure dans le template de base.
 
@@ -68,7 +68,7 @@ Pour commencer, dans le dossier `templates`, créez un dossier `_layout` qui con
 
 Dans ce dossier créez les fichiers `navbar.html.twig` et `footer.html.twig`.
 
-Prendre le fichier `base_home.html` du et répartir le code HTML dans les différents fichiers du dossier templates :
+Prendre le fichier `blog_home.html` du et répartir le code HTML dans les différents fichiers du dossier templates :
 
 * Le code commun doit se trouver dans `base.html.twig`
 * Le code de la navbar et du footer dans les fichiers séparés
