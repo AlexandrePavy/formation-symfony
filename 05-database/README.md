@@ -53,9 +53,9 @@ Pour les différents champs à ajouter et leur type, référez vous à la partie
 
 Observez la classe `Article` créée par la commande.
 
-Vous remarquerez l’annotation `@ORM\Entity` en haut de classe, qui permet de spécifier à Doctrine que cette classe est une entité. Il y a également des annotations `@ORM\Colum` au dessus de chaque propriété qui servent à définir le type et les contraintes de chaque colonne en base de données.
+Vous remarquerez l’attribut `#[ORM\Entity]` en haut de classe, qui permet de spécifier à Doctrine que cette classe est une entité. Il y a également des attributs `#[ORM\Column]` au dessus de chaque propriété qui servent à définir le type et les contraintes de chaque colonne en base de données.
 
-Cette commande a également généré une classe `ArticleRepository` mais nous y reviendrons plus tard.
+Cette commande a également généré une seconde classe `ArticleRepository` mais nous y reviendrons plus tard.
 
 Voici un exemple tiré de la documentation officielle qui illustre le travail effectué par Doctrine.
 
@@ -63,11 +63,11 @@ Voici un exemple tiré de la documentation officielle qui illustre le travail ef
 
 Une fois votre entité complète, il faut créer et exécuter une migration. Une migration est un fichier qui est créé par Doctrine et qui contient les requêtes SQL a exécuter pour créer, modifier ou supprimer une table.
 
-Pour cela Doctrine compare le mapping (annotations dans la classe `Article`) et l’état actuel de la base de données.
+Pour cela Doctrine compare le mapping (les attributs dans la classe `Article`) et l’état actuel de la base de données.
 
 Comme la table `article` n’existe pas, Doctrine va la créer avec tous les champs de notre entité.
 
-Exécuter la commande `php bin/console doctrine:migration:diff` qui calcule la différence entre le mapping et la DB.
+Exécuter la commande `php bin/console make:migration` ou `php bin/console doctrine:migration:diff` qui calcule la différence entre le mapping et la DB.
 
 Observez le fichier généré dans `src/Migrations`
 
