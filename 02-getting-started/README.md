@@ -205,7 +205,7 @@ votre méthode pour inclure l'objet Request.
 
 Puis changez la signature de la méthode lucky
 
-```
+```diff
 -        public function number(): Response
 +        public function number(Request $request): Response
 ```
@@ -234,7 +234,7 @@ et essayez de comprendre son utilité.
 
 ## Liens utiles
 
-Votre plus grande alliée est la [documentation officielle de Symfony](https://symfony.com/doc/6.1/index.html)
+Votre plus grande alliée est la [documentation officielle de Symfony](https://symfony.com/doc/6.3/index.html)
 
 Pour approfondir :
 
