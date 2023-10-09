@@ -1,22 +1,24 @@
 # Getting Starting with Symfony 6 🚀
 
 Les liens :
+
 * [Site officiel de Symfony](https://symfony.com/)
 * [Documentation de Symfony](https://symfony.com/doc/6.3/index.html)
 * [Versions de Symfony](https://symfony.com/releases)
 * [Visite rapide](https://symfony.com/doc/6.3/quick_tour/the_big_picture.html)
 * [Commencer avec Symfony 6](https://symfony.com/doc/6.3/getting_started/index.html)
 
-Pour les étapes d'installation de Symfony, consultez la [Documentation - Configuration de Symfony](https://symfony.com/doc/6.3/setup.html).
+Pour les étapes d'installation de Symfony, consultez
+la [Documentation - Configuration de Symfony](https://symfony.com/doc/6.3/setup.html).
 
 ## Installation simple avec Composer :
 
 ### Création d'un projet Symfony
 
-1. Utilisez la commande `composer create-project symfony/website-skeleton sf-website` 
-ou avec Symfony CLI : `symfony new --webapp sf-website`
-2. Utilisez la commande `composer create-project symfony/skeleton sf-skeleton` ou avec Symfony CLI : 
-`symfony new sf-skeleton`.
+1. Utilisez la commande `composer create-project symfony/website-skeleton sf-website`
+   ou avec Symfony CLI : `symfony new --webapp sf-website`
+2. Utilisez la commande `composer create-project symfony/skeleton sf-skeleton` ou avec Symfony CLI :
+   `symfony new sf-skeleton`.
 
 ### Démarrage du serveur web intégré PHP
 
@@ -37,11 +39,12 @@ ou avec Symfony CLI : `symfony new --webapp sf-website`
 
 ### Découvrir l'Architecture de Symfony
 
-Pour découvrir l'architecture de Symfony, consultez la [Documentation](https://symfony.com/doc/6.3/page_creation.html#checking-out-the-project-structure).
+Pour découvrir l'architecture de Symfony, consultez
+la [Documentation](https://symfony.com/doc/6.3/page_creation.html#checking-out-the-project-structure).
 
 ### Création de votre première page
 
-Créez une page simple affichant un nombre aléatoire. Créez le fichier `src/Controller/LuckyController.php` avec ce 
+Créez une page simple affichant un nombre aléatoire. Créez le fichier `src/Controller/LuckyController.php` avec ce
 contenu :
 
 ```php
@@ -72,20 +75,20 @@ Pour rendre cette fonction accessible depuis votre navigateur, ajoutez le code s
 # config/routes.yaml
 
 app_lucky_number:
-    path: /lucky_number
-    controller: App\Controller\LuckyController::number
+  path: /lucky_number
+  controller: App\Controller\LuckyController::number
 ```
 
 Vous pouvez maintenant accéder à votre page à l'adresse http://localhost:8000/lucky_number !
 
-On vient ici de créer une route nommée app_lucky_number, qui associe le chemin /lucky_number à la méthode number de la 
+On vient ici de créer une route nommée app_lucky_number, qui associe le chemin /lucky_number à la méthode number de la
 classe `App\Controller\LuckyController`.
 
 ### Attributs
 
 Au lieu de définir votre route en YAML, Symfony vous permet d'utiliser des routes en annotation ou en attribut PHP.
 
-Les attributs sont intégrés à PHP à partir de la version 8 de PHP. Dans les versions antérieures de PHP, vous pouvez 
+Les attributs sont intégrés à PHP à partir de la version 8 de PHP. Dans les versions antérieures de PHP, vous pouvez
 utiliser des annotations.
 
 Pour Symfony 6, utilisez les attributs. Supprimez ce que vous avez ajouté dans `config/routes.yaml` :
@@ -121,7 +124,7 @@ Pour Symfony 6, utilisez les attributs. Supprimez ce que vous avez ajouté dans 
     }
 ```
 
-Actualisez la page. Normalement, rien n'a changé. L'avantage des annotations ou des attributs PHP est que la 
+Actualisez la page. Normalement, rien n'a changé. L'avantage des annotations ou des attributs PHP est que la
 configuration de la route est directement associée au code.
 
 ## Définition
@@ -131,13 +134,12 @@ configuration de la route est directement associée au code.
 3. [Recettes officiel](https://github.com/symfony/recipes/blob/flex/main/RECIPES.md)
 4. [Recettes contrib](https://github.com/symfony/recipes-contrib/blob/flex/main/RECIPES.md)
 
-
-Symfony Flex est un plugin Composer qui simplifie l'installation des paquets. Lorsqu'un paquet a une recette Flex, 
+Symfony Flex est un plugin Composer qui simplifie l'installation des paquets. Lorsqu'un paquet a une recette Flex,
 Symfony Flex gère automatiquement l'installation et la configuration.
 
 Pour en savoir plus, consultez [Symfony Flex](https://github.com/symfony/flex).
 
-Cela permet d'exécuter automatiquement l'installation ou la désinstallation d'un paquet, pas besoin d'écrire la 
+Cela permet d'exécuter automatiquement l'installation ou la désinstallation d'un paquet, pas besoin d'écrire la
 configuration par défaut nous-même.
 
 ## Debug Bar
@@ -153,10 +155,10 @@ composer require debug
 composer require --dev symfony/debug-bundle symfony/web-profiler-bundle
 ```
 
-> Explorez les fonctionnalités de la barre de débogage et découvrez la méthode dump() pour afficher des informations 
+> Explorez les fonctionnalités de la barre de débogage et découvrez la méthode dump() pour afficher des informations
 > de débogage.
 
-Actualiser la page. Une nouvelle barre devrait maintenant apparaître en bas de la page avec différentes informations 
+Actualiser la page. Une nouvelle barre devrait maintenant apparaître en bas de la page avec différentes informations
 (temps d’exécution, temps de rendu, logs, etc)
 
 En cliquant sur un élément de la barre, on arrive sur la page de détails du Profiler.
@@ -177,7 +179,7 @@ $user = [
 dump($user);
 ```
 
-En actualisant la page, un symbole "Cible" devrait apparaître dans la barre et en passant le curseur dessus, 
+En actualisant la page, un symbole "Cible" devrait apparaître dans la barre et en passant le curseur dessus,
 vous devriez voir le contenu de la variable `$user`.
 
 ## Installation et Configuration du Plugin Symfony pour PHPStorm
@@ -185,13 +187,14 @@ vous devriez voir le contenu de la variable `$user`.
 Le plugin Symfony pour PHPStorm permet à notre IDE de reconnaître les fonctionnalités de Symfony. Pour l'installer :
 
 1. Accédez à Settings > Plugins, puis recherchez le plugin Symfony Support et installez-le.
-2. Dans File > Settings > PHP > Symfony, activez-le pour le projet et définissez src comme répertoire de l'application et public comme répertoire web.
+2. Dans File > Settings > PHP > Symfony, activez-le pour le projet et définissez src comme répertoire de l'application
+   et public comme répertoire web.
 
 Cocher la case Enable for this project et mettre src pour App Directory et public pour Web Directory.
 
 ## L’objet Request
 
-Découvrez comment récupérer des informations de la requête HTTP en utilisant l'objet Request. Modifiez la signature de 
+Découvrez comment récupérer des informations de la requête HTTP en utilisant l'objet Request. Modifiez la signature de
 votre méthode pour inclure l'objet Request.
 
 ```diff
@@ -209,7 +212,7 @@ Puis changez la signature de la méthode lucky
 
 Symfony va automatiquement comprendre que vous souhaitez récupérer la requête et vous la donner.
 
-Par exemple, avec l'URL suivante http://localhost:8000/lucky_number?name=John, on aimerait pouvoir récupérer le 
+Par exemple, avec l'URL suivante http://localhost:8000/lucky_number?name=John, on aimerait pouvoir récupérer le
 paramètre name présent dans la Query String
 
 Avec Request, il est possible de le faire comme ceci `$name = $request->query->get('name')`.
@@ -226,16 +229,17 @@ php bin/console
 
 ## Maker Bundle
 
-Découvrez [Symfony Maker Bundle](https://symfony.com/bundles/SymfonyMakerBundle/current/index.html). Installez-le 
+Découvrez [Symfony Maker Bundle](https://symfony.com/bundles/SymfonyMakerBundle/current/index.html). Installez-le
 et essayez de comprendre son utilité.
 
 ## Liens utiles
 
 Votre plus grande alliée est la [documentation officielle de Symfony](https://symfony.com/doc/6.1/index.html)
 
-Pour approfondir : 
+Pour approfondir :
 
-* https://symfonycasts.com/ Tutoriels vidéo de qualité sur la programmation orientée objet, JavaScript, Symfony, PHP (gratuits et payants, en anglais).
+* https://symfonycasts.com/ Tutoriels vidéo de qualité sur la programmation orientée objet, JavaScript, Symfony, PHP (
+  gratuits et payants, en anglais).
 * https://www.grafikart.fr/formations/php Formation vidéo gratuite sur PHP (en français).
 * https://www.grafikart.fr/formations/git Formation vidéo sur Git (gratuite, en français).
 * https://www.grafikart.fr/tutoriels/composer-480 Tutoriel vidéo sur Composer (gratuit, en français).
