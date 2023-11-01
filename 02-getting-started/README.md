@@ -144,7 +144,7 @@ configuration par défaut nous-même.
 
 ## Debug Bar
 
-Installez le Profiler Symfony. C’est un outil permettant d’avoir des informations supplémentaires lors du
+Installez le Profiler Symfony. C'est un outil permettant d'avoir des informations supplémentaires lors du
 développement afin de comprendre ce qu'il se passe et de voir les performances.
 
 Pour l'installer, utilisez la commande suivante :
@@ -159,7 +159,7 @@ composer require --dev symfony/debug-bundle symfony/web-profiler-bundle
 > de débogage.
 
 Actualiser la page. Une nouvelle barre devrait maintenant apparaître en bas de la page avec différentes informations
-(temps d’exécution, temps de rendu, logs, etc)
+(temps d'exécution, temps de rendu, logs, etc)
 
 En cliquant sur un élément de la barre, on arrive sur la page de détails du Profiler.
 
@@ -192,7 +192,7 @@ Le plugin Symfony pour PHPStorm permet à notre IDE de reconnaître les fonction
 
 Cocher la case Enable for this project et mettre src pour App Directory et public pour Web Directory.
 
-## L’objet Request
+## L'objet Request
 
 Découvrez comment récupérer des informations de la requête HTTP en utilisant l'objet Request. Modifiez la signature de
 votre méthode pour inclure l'objet Request.

@@ -12,4 +12,3 @@
 4. [Templating Twig](04-templating)
 5. [Base de données](05-database)
 6. [Routing](06-routing)
-7. [Formulaire](07-forms)

@@ -1,16 +1,17 @@
 # Templating avec Twig
 
-Dans la partie `Getting Started`, nous avons créé une simple page utilisant du html dans le controlleur.
+Dans la partie [Getting Started](../02-getting-started), nous avons créé une page simple utilisant du html directement
+dans le controller.
 
-Le but de cette partie est d’utiliser un framework CSS dans notre projet Symfony. Vous pouvez le
-visualiser [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+Le but de cette partie est d'utiliser un framework CSS dans notre projet Symfony. Vous pouvez le
+regarder la documentation de [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/).
 
-Vous pouvez télécharger les templates ici :
+Vous pouvez télécharger les templates HTML ici :
 
-* [blog_home](blog_home.html)
-* [blog_show](blog_show.html)
+* [blog_home](blog_home.html) - Page d'accueil de type blog
+* [blog_show](blog_show.html) - Page d'un article de blog
 
-## Installer Twig
+## Installation de Twig
 
 Commençons par installer Twig avec la commande suivante :
 
@@ -18,7 +19,7 @@ Commençons par installer Twig avec la commande suivante :
 composer require twig
 ```
 
-Pour rappel le package "twig" n'existe pas dans [Packagist](https://packagist.org/)
+Pour rappel, le package "twig" n'existe pas dans [Packagist](https://packagist.org/)
 c'est [Symfony Flex](https://t-richard.github.io/flex-server/) qui fait le lien
 avec https://github.com/symfony/twig-pack qui lui indique d'installer et de configurer automatiquement à notre place les
 packages suivants :
@@ -40,7 +41,7 @@ Documentation :
 * https://symfony.com/doc/6.3/templates.html templating dans symfony
 * https://symfony.com/doc/6.3/frontend.html gestion des Assets dans symfony
 
-## Création d’un nouveau controller
+## Création d'un nouveau controller
 
 Afin de tester nos nouvelles pages, nous allons créer un nouveau controller que nous appellerons `HomeController`.
 
@@ -63,13 +64,13 @@ Accédez à [localhost:8000](http://localhost:8000/) pour constater que votre pa
 
 ## Adaptation du template
 
-Chaque template doit hériter d’un template générique souvent nommé `base.html.twig`.
+Chaque template doit hériter d'un template commun et générique nommé `base.html.twig`.
 
-Ce fichier contient le code que l’on doit répéter sur toutes les pages. Il s’agit généralement du HTML générique (html,
-head, body, meta, etc) ainsi que des éléments HTML que l’on retrouve sur toutes les pages (navbar, menu, footer, etc).
+Ce fichier contient le code que l'on doit répéter sur toutes les pages. Il s'agit généralement du HTML générique (html,
+head, body, meta, etc) ainsi que des éléments HTML que l'on retrouve sur toutes les pages (navbar, menu, footer, etc).
 
-La bonne pratique veut que l’on sépare dans des fichiers différents, les composants de notre page. Cela veut par exemple
-dire un fichier pour la navbar et un fichier pour le footer, que l’on va inclure dans le template de base.
+La bonne pratique veut que l'on sépare dans des fichiers différents, les composants de notre page. Cela veut par exemple
+dire un fichier pour la navbar et un fichier pour le footer, que l'on va inclure dans le template de base.
 
 ### Passons à la pratique
 
@@ -83,13 +84,13 @@ Dans ce dossier, créez les fichiers `navbar.html.twig` et `footer.html.twig`.
 
 Prendre le fichier `blog_home.html` du et répartir le code HTML dans les différents fichiers du dossier templates :
 
-* Le code commun doit se trouver dans `base.html.twig`
-* Le code de la navbar et du footer dans les fichiers séparés
-* Le code spécifique à la page d’accueil dans le fichier `home/index.html.twig`
-* Le fichier `home/index.html.twig` doit étendre du template `base.html.twig` et le code spécifique à la page dans le
-  bloc body.
+* Le code commun des pages doit se trouver dans `base.html.twig`
+* Le code de la navbar et du footer dans les fichiers séparé
+* Le code spécifique à la page d'accueil doit se trouver dans le fichier `home/index.html.twig`
+* Le fichier `home/index.html.twig` doit étendre (extends) du template `base.html.twig` et le code spécifique à la page
+  dans le bloc body.
 
-Pour plus de détails sur la logique d’héritage,
+Pour plus de détails sur la logique d'héritage,
 consultez [cette documentation Twig](https://twig.symfony.com/doc/3.x/tags/extends.html).
 
 Les templates de la navbar et du footer ne doivent pas étendre de `base.html.twig`. Ils doivent être inclus dans le
@@ -106,14 +107,14 @@ Nous avons déjà vu que pour gérer nos URLs, nous utilisons l'attribut `#[Rout
 
 Dans cet attribut, nous avons deux parties :
 
-* `path` : c’est la partie après le nom de domaine que les utilisateurs devront saisir pour accéder à la page en
+* `path` : c'est la partie après le nom de domaine que les utilisateurs devront saisir pour accéder à la page en
   question.
 * `name` : cette partie est utile pour le développement, elle nous sert à référencer cette route pour pouvoir générer
   des URLs
 
-C’est cet attribut qui va nous servir à générer les URLs dans notre template Twig.
+C'est cet attribut qui va nous servir à générer les URLs dans notre template Twig.
 
-Dans le template `navbar.html.twig`, changez la balise contenant le lien vers la page d’accueil par
+Dans le template `navbar.html.twig`, changez la balise contenant le lien vers la page d'accueil par
 
 ```diff
 - <a class="navbar-brand" href="#!">Start Bootstrap</a>
@@ -122,18 +123,16 @@ Dans le template `navbar.html.twig`, changez la balise contenant le lien vers la
 
 Ici, la fonction `path()` prend comme paramètre le nom de la route défini dans l'attribut de votre controller.
 
-Si vous actualisez, vous devriez arriver sur la page d’accueil en cliquant sur `Start Bootstrap` dans le menu.
+Si vous actualisez, vous devriez arriver sur la page d'accueil en cliquant sur `Start Bootstrap` dans le menu.
 
-Changez également le lien `Home` sur la page d’accueil pour qu’il redirige aussi vers la page d’accueil.
+Changez également le lien `Home` sur la page d'accueil pour qu'il redirige aussi vers la page d'accueil.
 
-C’est d’ailleurs le moment de vous l’approprier. Choisissez un nom pour votre blog et changez-le dans la navbar, le
-footer (copyright) et le haut de page (où il est actuellement écrit Clean Blog).
-
-Vous pouvez également tenter d'ajouter uen image si vous le souhaitez.
+C'est d'ailleurs le moment de vous l'approprier. Choisissez un nom pour votre blog et changez-le dans la navbar, le
+footer (copyright) et le haut de page.
 
 Supprimez aussi les liens inutiles du menu pour ne laisser que les liens disponibles avec l'aide du commentaire twig.
 
-## Dynamisation de la page d’accueil
+## Dynamisation de la page d'accueil
 
 Nous allons tenter de dynamiser la page, pour cela dans votre controller `HomeController`
 
@@ -150,7 +149,7 @@ Créer plusieurs articles comme celui-ci :
     ];
 ```
 
-Et passez ces articles à votre vue.
+Et passez les articles à votre vue twig :
 
 ```php
 return $this->render('home/index.html.twig', [
@@ -162,7 +161,7 @@ return $this->render('home/index.html.twig', [
 
 Afin de représenter un article, nous allons créer une classe qui représente un article.
 
-Créez d’abord un dossier `Entity` dans le dossier src.
+Créez d'abord un dossier `Entity` dans le dossier src.
 
 Puis créez dans ce dossier une classe `Article.php`
 
@@ -179,15 +178,15 @@ class Article
 
 Ajoutez les propriétés suivantes
 
-- title (string, le titre de l’article)
+- title (string, le titre de l'article)
 - subtitle (string, le sous-titre, servant aussi de résumé pour la liste)
 - createdAt (DateTime, la date de création) NB : DateTime est une classe PHP représentant une date (avec heure et
   timezone)
-- author (string, le nom de l’auteur)
-- content (string, le contenu de l’article)
+- author (string, le nom de l'auteur)
+- content (string, le contenu de l'article)
 - imageUrl (string, l'adresse de l'image)
 
-Respectez le principe d’encapsulation en mettant vos propriétés en private et en ajoutant des getters et des setters.
+Respectez le principe d'encapsulation en mettant vos propriétés en private et en ajoutant des getters et des setters.
 
 Lien de la documentation sur les classes en PHP https://www.php.net/manual/fr/language.oop5.php
 
@@ -202,6 +201,7 @@ $article = [
 
 // become
 $article = new Article();
+// à vous de trouver la suite
 ...
 ```
 
@@ -214,7 +214,7 @@ Exercice Téléchargement de bootstrap en local
 Pour la gestion des fichiers statiques (images, scripts css, scripts js) vous pouvez copier les dossiers css, img, js et
 vendor dans le dossier `public` de notre projet Symfony.
 
-Symfony possède un composant nommé Webpack Encore et c’est LA méthode à privilégier pour un projet. Cependant, elle
+Symfony possède un composant Webpack Encore et c'est une méthode à privilégier pour un projet. Cependant, elle
 nécessite plus de temps à comprendre et mettre en place.
 
 Nous nous en tiendrons donc dans un premier temps à des fichiers statiques dans le dossier public.

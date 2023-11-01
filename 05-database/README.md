@@ -46,13 +46,13 @@ Vous devriez donc remplacer dans le fichier `.env` :
 + DATABASE_URL="mysql://root:@127.0.0.1:3306/my_blog?serverVersion=5.7&charset=utf8mb4"
 ```
 
-NB : Doctrine possède une partie nommée DBAL (Database abstraction layer), qui fait abstraction du SGBDR utilisé. Il est
+NB : Doctrine possède une partie nommée DBAL (Database abstraction layer), qui fait abstraction du SGBD utilisé. Il est
 donc possible d'utiliser PostgreSQL ou SQLite par exemple. Pour éviter les problèmes spécifiques à chaque plateforme,
 nous allons utiliser MySQL dans le cadre de ce TP.
 
 Commandes pour créer la base de données :
 
-1. `php bin/console doctrine:database:drop --force --if-exists` supprime la base de données s'il elle existe.
+1. `php bin/console doctrine:database:drop --force --if-exists` supprime la base de données si elle existe.
 2. `php bin/console doctrine:database:create` - création de la base de données.
 
 Créer une entité `App\Entity\Article` avec l'aide de `php bin/console make:entity`.
@@ -135,7 +135,7 @@ nous pouvons utiliser l'autowiring pour l'injection de dépendances.
 
 L'autowiring consiste à utiliser le typage des paramètres du constructeur pour injecter nos dépendances automatiquement.
 
-Plus d'informations sur les services et le DIC ici.
+Plus d'informations sur les services et le DIC [ici](https://symfony.com/doc/6.3/service_container.html).
 
 Ici, en ajoutant le code ci-dessous à notre HomeController, nous avons maintenant accès à $this->articleRepository.
 
@@ -148,7 +148,7 @@ public function __construct(ArticleRepository $articleRepository)
 }
 ```
 
-⚠ n'oubliez pas le `use` en haut de votre fichier pour importer `ArticleRepository`.
+⚠️ n'oubliez pas le `use` en haut de votre fichier pour importer `ArticleRepository`.
 
 Utiliser maintenant la méthode `findAll()` du repository pour remplacer le tableau `articles` que nous passions au
 template Twig.
@@ -168,7 +168,7 @@ On voit ici que Doctrine génère une requête SQL qui SELECT tous nos champs de
 Oui... Si demain, on a 100, 1000, 10000 articles, ils seront tous affichés sur la page d'accueil.
 
 Vous pouvez même tester en augmentant le nombre d'itérations dans vos fixtures pour générer des centaines ou milliers
-d'articles 😉
+d'articles.
 
 C'est là qu'intervient : le repository !
 
@@ -176,7 +176,7 @@ Nous allons ici créer une méthode customisée `findLast` dans le repository qu
 les derniers articles.
 
 ```php
-public function findLast($count) {
+public function findLast(int $count) {
     return $this->createQueryBuilder('article')
         ->getQuery()
         ->getResult()
@@ -207,7 +207,7 @@ données pour le développement.
 
 Nous avons également abordé l'injection de dépendances.
 
-Avec tout ça, nous avons maintenant une page d'accueil fonctionnelle à l'exception de deux choses :
+Avec tout ça, nous avons maintenant presque une page d'accueil fonctionnelle à l'exception de :
 
 Les liens sur le titre des articles doivent nous rediriger vers la vue de l'article en question, c'est ce que nous
 allons voir dans le prochain tp.

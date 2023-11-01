@@ -95,7 +95,7 @@ Puis lancer la commande suivante pour régénérer les fichiers composer :
 composer dump-autoload
 ```
 
-Cela indique à composer que le dossier `src` correspond à l’espace de nom (namespace) `App`
+Cela indique à composer que le dossier `src` correspond à l'espace de nom (namespace) `App`
 
 ## Exercice
 

@@ -7,8 +7,8 @@ attributs `#[Route()]` que c'est la méthode `index` de notre `HomeController` q
 
 Le but va être ici de faire une route et une méthode de controller pour nos pages d'articles de blog.
 
-On voudrait donc une URL du type `/articles/{id de l'article}`, ainsi `/articles/1` nous emmènera sur la page de
-l'article ayant l'id 1 dans la base de données et celui-ci n'existe pas, nous devrons avoir une erreur 404.
+On voudrait donc une URL du type `/articles/{identifiant de l'article}`, ainsi `/articles/1` nous emmènera sur la page
+de l'article ayant l'identifiant 1 dans la base de données ou s'il n'existe pas, nous devrons avoir une erreur 404.
 
 ## Exemple
 
@@ -58,7 +58,7 @@ sont pas correct.
 
 Pour résoudre ça :
 
-```
+```bash
 composer require symfony/asset
 ```
 
@@ -73,5 +73,6 @@ fichiers statiques.
 
 Utilisez cette méthode pour tous vos fichiers CSS, JS et vos images.
 
-Ce paquet peut faire beaucoup plus que ça, vous pouvez consulter la documentation si vous voulez en savoir plus.
+Ce paquet peut faire beaucoup plus que ça, vous pouvez consulter
+la [documentation](https://symfony.com/doc/6.3/components/asset.html) si vous voulez en savoir plus.
 
