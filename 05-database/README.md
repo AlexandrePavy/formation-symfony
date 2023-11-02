@@ -55,10 +55,21 @@ Commandes pour créer la base de données :
 1. `php bin/console doctrine:database:drop --force --if-exists` supprime la base de données si elle existe.
 2. `php bin/console doctrine:database:create` - création de la base de données.
 
+⚠️ Si vous avez déjà le fichier Article.php dans `src/Entity`, il faut le supprimer avant de continuer.
+
 Créer une entité `App\Entity\Article` avec l'aide de `php bin/console make:entity`.
 
 Pour les différents champs à ajouter et leur type, référez-vous à la partie sur Twig à l'exception de body où vous
-mettrez text au lieu de string.
+mettrez `text` au lieu de `string`.
+
+Les champs :
+- title (string, le titre de l'article)
+- subtitle (string, le sous-titre, servant aussi de résumé pour la liste)
+- createdAt (DateTime, la date de création) NB : DateTime est une classe PHP représentant une date (avec heure et
+  timezone)
+- author (string, le nom de l'auteur)
+- content (text, le contenu de l'article)
+- imageUrl (string, l'adresse de l'image)
 
 Observez la classe `Article` créée par la commande.
 
@@ -79,8 +90,7 @@ Pour cela Doctrine compare le mapping (les attributs dans la classe `Article`) e
 
 Comme la table `article` n'existe pas, Doctrine va la créer avec tous les champs de notre entité.
 
-Exécuter la commande `php bin/console make:migration` ou `php bin/console doctrine:migration:diff` qui calcule la
-différence entre le mapping et la DB.
+Exécuter la commande `php bin/console doctrine:migration:diff` qui calcule la différence entre le mapping et la DB.
 
 Observez le fichier généré dans `src/Migrations`
 
@@ -91,6 +101,8 @@ vous tapez cette commande à nouveau, Doctrine devrait vous dire qu'il n'y a rie
 
 Il en est de même pour `php bin/console doctrine:migration:diff`, cela va générer un fichier de migration vide, car il
 n'y a plus de différences entre le mapping et la DB.
+
+La commande `php bin/console doctrine:migrations:status` permet de voir l'état des migrations.
 
 ## Fixtures
 

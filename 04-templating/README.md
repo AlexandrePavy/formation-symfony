@@ -85,10 +85,22 @@ Dans ce dossier, créez les fichiers `navbar.html.twig` et `footer.html.twig`.
 Prendre le fichier `blog_home.html` du et répartir le code HTML dans les différents fichiers du dossier templates :
 
 * Le code commun des pages doit se trouver dans `base.html.twig`
-* Le code de la navbar et du footer dans les fichiers séparé
+* Le code de la navbar et du footer dans les fichiers séparés.
 * Le code spécifique à la page d'accueil doit se trouver dans le fichier `home/index.html.twig`
 * Le fichier `home/index.html.twig` doit étendre (extends) du template `base.html.twig` et le code spécifique à la page
   dans le bloc body.
+
+Prendre le fichier `blog_show.html` et répartir le code dans un template `home/show.html.twig` et faire une nouvelle 
+route dans votre controller existant pour afficher un article.
+
+```php
+    #[Route('/article/1', name: 'app_article_show')]
+    public function show(): Response
+    {
+        return $this->render('home/show.html.twig', [
+        ]);
+    }
+```
 
 Pour plus de détails sur la logique d'héritage,
 consultez [cette documentation Twig](https://twig.symfony.com/doc/3.x/tags/extends.html).
@@ -157,7 +169,7 @@ return $this->render('home/index.html.twig', [
 ]);
 ```
 
-* Refaire l'intégration du html blog_show.html dans une route dédiée
+* Modifier l'intégration du html blog_show.html dans la route route dédiée
   * Ajouter une nouvelle route pour afficher un article
   * Intéger le template `home/show.html.twig` avec [blog_show](blog_show.html)
 
